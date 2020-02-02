@@ -104,6 +104,7 @@ namespace Jolt
                 Path.Combine(referenceAssembliesDirectoryNameX86, netfx3_5),
                 Path.Combine(referenceAssembliesDirectoryName, netfx3_0),
                 Path.Combine(referenceAssembliesDirectoryNameX86, netfx3_0),
+                Path.Combine(netfxDirectoryName, Path.Combine(@"v4.0.30319", culture)),
                 Path.Combine(netfxDirectoryName, Path.Combine(@"v2.0.50727", culture)),
                 Path.Combine(netfxDirectoryName, @"v1.1.4322"),
                 Path.Combine(netfxDirectoryName, @"v1.0.3705")
