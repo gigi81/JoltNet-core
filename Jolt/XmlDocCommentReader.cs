@@ -12,6 +12,7 @@ using System.Configuration;
 using System.IO;
 using System.Reflection;
 using System.Xml.Linq;
+using System.Linq;
 
 using Jolt.IO;
 using Jolt.Properties;
@@ -215,11 +216,11 @@ namespace Jolt
         }
 
         /// <summary>
-        /// Retrieves the xml doc comments for a given <see cref="System.Refection.EventInfo"/>.
+        /// Retrieves the xml doc comments for a given <see cref="System.Reflection.EventInfo"/>.
         /// </summary>
         /// 
         /// <param name="eventInfo">
-        /// The <see cref="System.Refection.EventInfo"/> for which the doc comments are retrieved.
+        /// The <see cref="System.Reflection.EventInfo"/> for which the doc comments are retrieved.
         /// </param>
         /// 
         /// <returns>
@@ -373,9 +374,9 @@ namespace Jolt
             string assemblyFileName = assembly.GetName().Name;
             string xmlDocCommentsFilename = String.Concat(assemblyFileName, XmlFileExtension);
 
-            foreach (XmlDocCommentDirectoryElement directory in directories)
+            foreach (var directory in directories.Cast<XmlDocCommentDirectoryElement>().Select(d => d.Name))
             {
-                string xmlDocCommentsFullPath = Path.GetFullPath(Path.Combine(directory.Name, xmlDocCommentsFilename));
+                string xmlDocCommentsFullPath = Path.GetFullPath(Path.Combine(directory, xmlDocCommentsFilename));
                 if (fileProxy.Exists(xmlDocCommentsFullPath))
                 {
                     return xmlDocCommentsFullPath;
