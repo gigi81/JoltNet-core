@@ -323,7 +323,7 @@ namespace Jolt.Test.Functional
         public void Identity()
         {
             Func<string, string> identity = Functor.Identity<string>();
-            Assert.That(identity.Target, Is.Null);
+            Assert.That(identity.Target, Is.Not.Null);
 
             for (int i = 0; i < 200; ++i)
             {
@@ -339,7 +339,7 @@ namespace Jolt.Test.Functional
         public void TrueForAll()
         {
             Func<int, bool> predicate = Functor.TrueForAll<int>();
-            Assert.That(predicate.Target, Is.Null);
+            Assert.That(predicate.Target, Is.Not.Null);
 
             for (int i = 0; i < 200; ++i)
             {
@@ -354,7 +354,7 @@ namespace Jolt.Test.Functional
         public void FalseForAll()
         {
             Func<int, bool> predicate = Functor.FalseForAll<int>();
-            Assert.That(predicate.Target, Is.Null);
+            Assert.That(predicate.Target, Is.Not.Null);
 
             for (int i = 0; i < 200; ++i)
             {
@@ -376,8 +376,10 @@ namespace Jolt.Test.Functional
         /// </param>
         private static MethodInfo GetNoOpMethod(params Type[] genericMethodArgs)
         {
-            MethodInfo noOpMethod =  typeof(Functor).GetMethods(BindingFlags.NonPublic | BindingFlags.Static).Single(
-                method => method.Name.StartsWith("<NoOperation>") &&
+            var staticMethods = typeof(Functor).GetMethods(BindingFlags.NonPublic | BindingFlags.Static);
+
+            var noOpMethod = staticMethods.Single(
+                          method => method.Name.StartsWith("NoOperationInternal") &&
                           method.GetGenericArguments().Length == genericMethodArgs.Length);
             return !noOpMethod.IsGenericMethod ? noOpMethod : noOpMethod.MakeGenericMethod(genericMethodArgs);
         }

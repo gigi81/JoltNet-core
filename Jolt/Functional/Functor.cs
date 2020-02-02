@@ -359,7 +359,7 @@ namespace Jolt.Functional
         /// </summary>
         public static Action NoOperation()
         {
-            return delegate { };
+            return NoOperationInternal;
         }
 
         /// <summary>
@@ -371,7 +371,7 @@ namespace Jolt.Functional
         /// </typeparam>
         public static Action<T> NoOperation<T>()
         {
-            return delegate { };
+            return NoOperationInternal<T>;
         }
 
         /// <summary>
@@ -387,7 +387,7 @@ namespace Jolt.Functional
         /// </typeparam>
         public static Action<T1, T2> NoOperation<T1, T2>()
         {
-            return delegate { };
+            return NoOperationInternal<T1, T2>;
         }
 
         /// <summary>
@@ -407,7 +407,7 @@ namespace Jolt.Functional
         /// </typeparam>
         public static Action<T1, T2, T3> NoOperation<T1, T2, T3>()
         {
-            return delegate { };
+            return NoOperationInternal<T1, T2, T3>;
         }
 
         /// <summary>
@@ -431,7 +431,7 @@ namespace Jolt.Functional
         /// </typeparam>
         public static Action<T1, T2, T3, T4> NoOperation<T1, T2, T3, T4>()
         {
-            return delegate { };
+            return NoOperationInternal<T1, T2, T3, T4>;
         }
 
         /// <summary>
@@ -468,6 +468,26 @@ namespace Jolt.Functional
         public static Func<T, bool> FalseForAll<T>()
         {
             return delegate { return false; };  // Ensures the generated method is static.
+        }
+
+        private static void NoOperationInternal()
+        {
+        }
+
+        private static void NoOperationInternal<T1>(T1 arg1)
+        {
+        }
+
+        private static void NoOperationInternal<T1, T2>(T1 arg1, T2 arg2)
+        {
+        }
+
+        private static void NoOperationInternal<T1, T2, T3>(T1 arg1, T2 arg2, T3 arg3)
+        {
+        }
+
+        private static void NoOperationInternal<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4)
+        {
         }
     }
 }
