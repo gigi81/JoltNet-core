@@ -13,7 +13,7 @@ using System.Reflection;
 
 using Jolt.Functional;
 
-namespace Jolt.Test.Types
+namespace Jolt.Tests.Types
 {
     internal abstract class OperatorTestType<T, U>
     {

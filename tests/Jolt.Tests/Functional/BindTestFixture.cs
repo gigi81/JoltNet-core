@@ -13,7 +13,7 @@ using System.Text;
 using Jolt.Functional;
 using NUnit.Framework;
 
-namespace Jolt.Test.Functional
+namespace Jolt.Tests.Functional
 {
     [TestFixture]
     public sealed class BindTestFixture

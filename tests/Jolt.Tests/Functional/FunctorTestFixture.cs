@@ -16,7 +16,7 @@ using Jolt.Functional;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Jolt.Test.Functional
+namespace Jolt.Tests.Functional
 {
     [TestFixture]
     public sealed class FunctorTestFixture

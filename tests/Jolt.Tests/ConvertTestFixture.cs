@@ -11,10 +11,10 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-using Jolt.Test.Types;
+using Jolt.Tests.Types;
 using NUnit.Framework;
 
-namespace Jolt.Test
+namespace Jolt.Tests
 {
     [TestFixture]
     public sealed class ConvertTestFixture

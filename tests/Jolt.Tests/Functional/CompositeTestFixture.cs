@@ -9,12 +9,11 @@
 
 using System;
 using System.Text;
-
 using Jolt.Functional;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Jolt.Test.Functional
+namespace Jolt.Tests.Functional
 {
     [TestFixture]
     public sealed class CompositeTestFixture
@@ -130,7 +129,7 @@ namespace Jolt.Test.Functional
             for (uint i = 0; i < 20; ++i)
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
-                Assert.That(boundFunction(functionArg), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                Assert.That(boundFunction(functionArg), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -150,7 +149,7 @@ namespace Jolt.Test.Functional
             for (int i = 0; i < 20; ++i)
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
-                Assert.That(boundFunction(i, functionArg), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                Assert.That(boundFunction(i, functionArg), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -171,7 +170,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 Assert.That(boundFunction(i, TimeSpan.FromDays(i), functionArg),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -192,7 +191,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 Assert.That(boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, functionArg),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -213,7 +212,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 Assert.That(boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -235,7 +234,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 Assert.That(boundFunction(functionArg_1, functionArg_2),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -257,7 +256,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 Assert.That(boundFunction(i, functionArg_1, functionArg_2),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -279,7 +278,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 Assert.That(boundFunction(i, TimeSpan.FromDays(i), functionArg_1, functionArg_2),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -301,7 +300,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 Assert.That(boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, functionArg_1, functionArg_2),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -323,7 +322,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 Assert.That(boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_1, functionArg_2),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -346,7 +345,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -369,7 +368,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 Assert.That(boundFunction(i, functionArg_1, functionArg_2, functionArg_3),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -392,7 +391,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 Assert.That(boundFunction(i, TimeSpan.FromDays(i), functionArg_1, functionArg_2, functionArg_3),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -415,7 +414,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 Assert.That(boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, functionArg_1, functionArg_2, functionArg_3),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -438,7 +437,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 Assert.That(boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_1, functionArg_2, functionArg_3),
-                    Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                    Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -582,7 +581,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(functionArg);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
                 builder.Length = 0;
             }
 
@@ -607,7 +606,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(i, functionArg);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
                 builder.Length = 0;
             }
 
@@ -632,7 +631,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(i, TimeSpan.FromDays(i), functionArg);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
                 builder.Length = 0;
             }
 
@@ -657,7 +656,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, functionArg);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
                 builder.Length = 0;
             }
 
@@ -682,7 +681,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg)));
                 builder.Length = 0;
             }
 
@@ -708,7 +707,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -734,7 +733,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(i, functionArg_1, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -760,7 +759,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(i, TimeSpan.FromDays(i), functionArg_1, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -786,7 +785,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, functionArg_1, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -812,7 +811,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_1, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -839,7 +838,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -866,7 +865,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(i, functionArg_1, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -893,7 +892,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(i, TimeSpan.FromDays(i), functionArg_1, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -920,7 +919,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, functionArg_1, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -947,7 +946,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_1, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(InnerFunctionResult, functionArg_1, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -968,7 +967,7 @@ namespace Jolt.Test.Functional
             for (uint i = 0; i < 20; ++i)
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
-                Assert.That(boundFunction(functionArg), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -988,7 +987,7 @@ namespace Jolt.Test.Functional
             for (int i = 0; i < 20; ++i)
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
-                Assert.That(boundFunction(functionArg, i), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg, i), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1008,7 +1007,7 @@ namespace Jolt.Test.Functional
             for (int i = 0; i < 20; ++i)
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
-                Assert.That(boundFunction(functionArg, i, TimeSpan.FromDays(i)), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg, i, TimeSpan.FromDays(i)), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1028,7 +1027,7 @@ namespace Jolt.Test.Functional
             for (int i = 0; i < 20; ++i)
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
-                Assert.That(boundFunction(functionArg, i, TimeSpan.FromDays(i), 2.5 * i), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg, i, TimeSpan.FromDays(i), 2.5 * i), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1048,7 +1047,7 @@ namespace Jolt.Test.Functional
             for (int i = 0; i < 20; ++i)
             {
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
-                Assert.That(boundFunction(functionArg, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1069,7 +1068,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, functionArg_2), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1090,7 +1089,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, i, functionArg_2), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(boundFunction(functionArg_1, i, functionArg_2), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1111,7 +1110,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), functionArg_2), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), functionArg_2), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1132,7 +1131,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, functionArg_2), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, functionArg_2), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1153,7 +1152,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_2), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_2), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1175,7 +1174,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1197,7 +1196,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, i, functionArg_2, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, i, functionArg_2, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1219,7 +1218,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), functionArg_2, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), functionArg_2, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1241,7 +1240,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, functionArg_2, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, functionArg_2, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1263,7 +1262,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_2, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_2, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1287,7 +1286,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(functionArg);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -1312,7 +1311,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(functionArg, i);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -1337,7 +1336,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(functionArg, i, TimeSpan.FromDays(i));
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -1362,7 +1361,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(functionArg, i, TimeSpan.FromDays(i), 2.5 * i);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -1387,7 +1386,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg = TimeSpan.FromTicks(i);
                 boundFunction(functionArg, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -1413,7 +1412,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -1439,7 +1438,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, i, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -1465,7 +1464,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, i, TimeSpan.FromDays(i), functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -1491,7 +1490,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -1517,7 +1516,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2)));
                 builder.Length = 0;
             }
 
@@ -1544,7 +1543,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -1571,7 +1570,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, i, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -1598,7 +1597,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, i, TimeSpan.FromDays(i), functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -1625,7 +1624,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -1652,7 +1651,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, InnerFunctionResult, functionArg_2, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -1674,7 +1673,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, functionArg_2), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1695,7 +1694,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, i), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, i), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1716,7 +1715,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i)), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i)), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1737,7 +1736,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1758,7 +1757,7 @@ namespace Jolt.Test.Functional
             {
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1780,7 +1779,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1802,7 +1801,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, i, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, i, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1824,7 +1823,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), functionArg_3), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), functionArg_3), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1846,7 +1845,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1868,7 +1867,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -1893,7 +1892,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, functionArg_2);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -1919,7 +1918,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, functionArg_2, i);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -1945,7 +1944,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i));
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -1971,7 +1970,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -1997,7 +1996,7 @@ namespace Jolt.Test.Functional
                 double functionArg_2 = 5.5 * i;
                 boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -2024,7 +2023,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -2051,7 +2050,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, i, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -2078,7 +2077,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -2105,7 +2104,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -2132,7 +2131,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, InnerFunctionResult, functionArg_3)));
                 builder.Length = 0;
             }
 
@@ -2155,7 +2154,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -2177,7 +2176,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3, i), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3, i), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -2199,7 +2198,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3, i, TimeSpan.FromDays(i)), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3, i, TimeSpan.FromDays(i)), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -2221,7 +2220,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3, i, TimeSpan.FromDays(i), 2.5 * i), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3, i, TimeSpan.FromDays(i), 2.5 * i), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -2243,7 +2242,7 @@ namespace Jolt.Test.Functional
                 TimeSpan functionArg_1 = TimeSpan.FromTicks(i);
                 double functionArg_2 = 5.5 * i;
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
-                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(boundFunction(functionArg_1, functionArg_2, functionArg_3, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
             }
 
             innerFunction.VerifyAllExpectations();
@@ -2269,7 +2268,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, functionArg_3);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -2296,7 +2295,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, functionArg_3, i);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -2323,7 +2322,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, functionArg_3, i, TimeSpan.FromDays(i));
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -2350,7 +2349,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, functionArg_3, i, TimeSpan.FromDays(i), 2.5 * i);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -2377,7 +2376,7 @@ namespace Jolt.Test.Functional
                 DayOfWeek functionArg_3 = DayOfWeek.Thursday;
                 boundFunction(functionArg_1, functionArg_2, functionArg_3, i, TimeSpan.FromDays(i), 2.5 * i, DayOfWeek.Friday);
 
-                Assert.That(builder.ToString(), Is.EqualTo(String.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
+                Assert.That(builder.ToString(), Is.EqualTo(string.Concat(functionArg_1, functionArg_2, functionArg_3, InnerFunctionResult)));
                 builder.Length = 0;
             }
 
@@ -2606,18 +2605,18 @@ namespace Jolt.Test.Functional
         private static readonly uint InnerFunctionResult = 0xdeadbeef;
 
         private static readonly Func<uint, string> FuncToBind_1Arg_ForFirst = number => number.ToString();
-        private static readonly Func<uint, TimeSpan, string> FuncToBind_2Args_ForFirst = (number, duration) => String.Concat(number, duration);
-        private static readonly Func<uint, TimeSpan, double, string> FuncToBind_3Args_ForFirst = (number, duration, ratio) => String.Concat(number, duration, ratio);
-        private static readonly Func<uint, TimeSpan, double, DayOfWeek, string> FuncToBind_4Args_ForFirst = (number, duration, ratio, day) => String.Concat(number, duration, ratio, day);
+        private static readonly Func<uint, TimeSpan, string> FuncToBind_2Args_ForFirst = (number, duration) => string.Concat(number, duration);
+        private static readonly Func<uint, TimeSpan, double, string> FuncToBind_3Args_ForFirst = (number, duration, ratio) => string.Concat(number, duration, ratio);
+        private static readonly Func<uint, TimeSpan, double, DayOfWeek, string> FuncToBind_4Args_ForFirst = (number, duration, ratio, day) => string.Concat(number, duration, ratio, day);
 
-        private static readonly Func<TimeSpan, uint, string> FuncToBind_2Args_ForSecond = (duration, number) => String.Concat(duration, number);
-        private static readonly Func<TimeSpan, uint, double, string> FuncToBind_3Args_ForSecond = (duration, number, ratio) => String.Concat(duration, number, ratio);
-        private static readonly Func<TimeSpan, uint, double, DayOfWeek, string> FuncToBind_4Args_ForSecond = (duration, number, ratio, day) => String.Concat(duration, number, ratio, day);
+        private static readonly Func<TimeSpan, uint, string> FuncToBind_2Args_ForSecond = (duration, number) => string.Concat(duration, number);
+        private static readonly Func<TimeSpan, uint, double, string> FuncToBind_3Args_ForSecond = (duration, number, ratio) => string.Concat(duration, number, ratio);
+        private static readonly Func<TimeSpan, uint, double, DayOfWeek, string> FuncToBind_4Args_ForSecond = (duration, number, ratio, day) => string.Concat(duration, number, ratio, day);
 
-        private static readonly Func<TimeSpan, double, uint, string> FuncToBind_3Args_ForThird = (duration, ratio, number) => String.Concat(duration, ratio, number);
-        private static readonly Func<TimeSpan, double, uint, DayOfWeek, string> FuncToBind_4Args_ForThird = (duration, ratio, number, day) => String.Concat(duration, ratio, number, day);
+        private static readonly Func<TimeSpan, double, uint, string> FuncToBind_3Args_ForThird = (duration, ratio, number) => string.Concat(duration, ratio, number);
+        private static readonly Func<TimeSpan, double, uint, DayOfWeek, string> FuncToBind_4Args_ForThird = (duration, ratio, number, day) => string.Concat(duration, ratio, number, day);
 
-        private static readonly Func<TimeSpan, double, DayOfWeek, uint, string> FuncToBind_4Args_ForFourth = (duration, ratio, day, number) => String.Concat(duration, ratio, day, number);
+        private static readonly Func<TimeSpan, double, DayOfWeek, uint, string> FuncToBind_4Args_ForFourth = (duration, ratio, day, number) => string.Concat(duration, ratio, day, number);
 
         #endregion
     }

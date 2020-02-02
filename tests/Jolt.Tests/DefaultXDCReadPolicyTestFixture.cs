@@ -13,6 +13,7 @@ using System.Text;
 using System.Xml.Schema;
 
 using Jolt.IO;
+using Jolt.Tests;
 using NUnit.Framework;
 using Rhino.Mocks;
 

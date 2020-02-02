@@ -13,10 +13,11 @@ using System.Linq;
 using System.Xml.Linq;
 
 using Jolt.IO;
+using Jolt.Test;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Jolt.Test
+namespace Jolt.Tests
 {
     public abstract class AbstractXDCReadPolicyTestFixture
     {
@@ -155,7 +156,7 @@ namespace Jolt.Test
             fileProxy.VerifyAllExpectations();
         }
 
-        
+
         /// <summary>
         /// Retrieves a stream reader that reads the test fixutres sample
         /// doc comments XML.
