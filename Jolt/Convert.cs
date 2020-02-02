@@ -129,6 +129,9 @@ namespace Jolt
         /// </returns>
         public static string ToXmlDocCommentMember(ConstructorInfo constructor)
         {
+            if (constructor == null)
+                throw new ArgumentNullException(nameof(constructor));
+
             int namePosition;
             StringBuilder builder = ToXmlDocCommentMember<ConstructorInfo>(constructor, constructor.GetParameters(), out namePosition);
             builder[namePosition] = '#';   // Replaces . with # in ctor name.

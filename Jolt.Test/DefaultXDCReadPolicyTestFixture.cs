@@ -42,16 +42,18 @@ namespace Jolt.Test
         /// Verifies the construction of the class when the given
         /// XML doc comment file is invalid.
         /// </summary>
-        [Test, ExpectedException(typeof(XmlSchemaValidationException))]
+        [Test]
         public void Construction_InvalidXml()
         {
-            using (StreamReader expectedReader = new StreamReader(new MemoryStream(Encoding.Default.GetBytes("<invalidXml/>"))))
-            {
-                base.Constructrion_Internal(
-                    CreatePolicy,
-                    (expectedFilename, fileProxy) => fileProxy.Expect(f => f.OpenText(expectedFilename)).Return(expectedReader),
-                    NullAssert);
-            }
+            Assert.Throws<XmlSchemaValidationException>(() => {
+                using (StreamReader expectedReader = new StreamReader(new MemoryStream(Encoding.Default.GetBytes("<invalidXml/>"))))
+                {
+                    base.Constructrion_Internal(
+                        CreatePolicy,
+                        (expectedFilename, fileProxy) => fileProxy.Expect(f => f.OpenText(expectedFilename)).Return(expectedReader),
+                        NullAssert);
+                }
+            });
         }
 
         /// <summary>

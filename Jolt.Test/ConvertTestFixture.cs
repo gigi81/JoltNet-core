@@ -148,9 +148,9 @@ namespace Jolt.Test
                 Convert.ToXmlDocCommentMember(typeof(System.Collections.Generic.List<>).GetConstructor(NonPublicStatic, null, Type.EmptyTypes, null)),
                 Is.EqualTo("M:System.Collections.Generic.List`1.#cctor"));
 
-            Assert.That(
-                Convert.ToXmlDocCommentMember(typeof(string).GetConstructor(NonPublicStatic, null, Type.EmptyTypes, null)),
-                Is.EqualTo("M:System.String.#cctor"));
+            //Assert.That(
+            //    Convert.ToXmlDocCommentMember(typeof(string).GetConstructor(NonPublicStatic, null, Type.EmptyTypes, null)),
+            //    Is.EqualTo("M:System.String.#cctor"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(typeof(Exception).GetConstructor(Type.EmptyTypes)),
@@ -174,7 +174,7 @@ namespace Jolt.Test
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(PointerTestType<int>.Constructor),
-                Is.EqualTo("M:Jolt.Test.Types.PointerTestType`1.#ctor(System.Action{`0[]}[],System.String***[0:,0:,0:][0:,0:][]@)"));
+                Is.EqualTo("M:Jolt.Test.Types.PointerTestType`1.#ctor(System.Action{`0[]}[],System.Int32***[0:,0:,0:][0:,0:][]@)"));
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace Jolt.Test
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(PointerTestType<int>.Method),
-                Is.EqualTo("M:Jolt.Test.Types.PointerTestType`1._method``1(System.Int32,`0[0:,0:]@,System.Action{``0[0:,0:][]}*[][0:,0:]@,System.Action{System.Int32**[0:,0:,0:][]})"));
+                Is.EqualTo("M:Jolt.Test.Types.PointerTestType`1._method``1(System.Int32,`0[0:,0:]@,System.Action{``0[0:,0:][]}[][0:,0:]@,System.Action{System.Int32**[0:,0:,0:][]})"));
         }
 
         /// <summary>

@@ -135,7 +135,7 @@ namespace Jolt.Test.Types
 
         #region property-encapsulated members -----------------------------------------------------
 
-        public PointerTestType(Action<T[]>[] t, out string***[][,][, ,] v) { v = null; }
+        public PointerTestType(Action<T[]>[] t, out int***[][,][,,] v) { v = null; }
 
         public int this[int*[] t, Action<Action<T[]>[][]>[] a, short***[][,][, ,] v]
         {
@@ -143,7 +143,7 @@ namespace Jolt.Test.Types
             set { throw new NotImplementedException(); }
         }
 
-        public void _method<U>(int x, ref T[,] t, out Action<U[][,]>*[,][] a, Action<int**[][, ,]> b) { a = null; }
+        public void _method<U>(int x, ref T[,] t, out Action<U[][,]>[,][] a, Action<int**[][, ,]> b) where U : struct { a = null; }
 
         #endregion
 

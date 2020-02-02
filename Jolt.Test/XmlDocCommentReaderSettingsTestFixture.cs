@@ -61,6 +61,7 @@ namespace Jolt.Test
                 Path.Combine(programFilesDirectoryName, @"Reference Assemblies\Microsoft\Framework\3.5"),
                 Path.Combine(programFilesDirectoryName + " (x86)", @"Reference Assemblies\Microsoft\Framework\3.0\" + currentCulture),
                 Path.Combine(programFilesDirectoryName, @"Reference Assemblies\Microsoft\Framework\3.0\" + currentCulture),
+                Path.Combine(windowsDirectoryName, @"Microsoft.NET\Framework\v4.0.30319\" + currentCulture),
                 Path.Combine(windowsDirectoryName, @"Microsoft.NET\Framework\v2.0.50727\" + currentCulture),
                 Path.Combine(windowsDirectoryName, @"Microsoft.NET\Framework\v1.1.4322"),
                 Path.Combine(windowsDirectoryName, @"Microsoft.NET\Framework\v1.0.3705") };
