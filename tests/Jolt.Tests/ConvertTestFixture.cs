@@ -30,7 +30,7 @@ namespace Jolt.Tests
         {
             Assert.That(Convert.ToXmlDocCommentMember(typeof(int)), Is.EqualTo("T:System.Int32"));
             Assert.That(Convert.ToXmlDocCommentMember(typeof(System.Xml.XmlDocument)), Is.EqualTo("T:System.Xml.XmlDocument"));
-            Assert.That(Convert.ToXmlDocCommentMember(GetType()), Is.EqualTo("T:Jolt.Test.ConvertTestFixture"));
+            Assert.That(Convert.ToXmlDocCommentMember(GetType()), Is.EqualTo("T:Jolt.Tests.ConvertTestFixture"));
             
             Assert.That(
                 Convert.ToXmlDocCommentMember(typeof(System.Net.WebRequestMethods.File)),
@@ -46,7 +46,7 @@ namespace Jolt.Tests
         public void ToXmlDocCommentMember_Type_Generic()
         {
             Assert.That(Convert.ToXmlDocCommentMember(typeof(System.Action<,,,>)), Is.EqualTo("T:System.Action`4"));
-            Assert.That(Convert.ToXmlDocCommentMember(typeof(__GenericTestType<int, char, byte>)), Is.EqualTo("T:Jolt.Test.Types.__GenericTestType`3"));
+            Assert.That(Convert.ToXmlDocCommentMember(typeof(__GenericTestType<int, char, byte>)), Is.EqualTo("T:Jolt.Tests.Types.__GenericTestType`3"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(typeof(System.Collections.Generic.List<>)),
@@ -66,7 +66,7 @@ namespace Jolt.Tests
         {
             Assert.That(
                 Convert.ToXmlDocCommentMember(__GenericTestType<int, int, int>.InstanceEvent),
-                Is.EqualTo("E:Jolt.Test.Types.__GenericTestType`3._InstanceEvent"));
+                Is.EqualTo("E:Jolt.Tests.Types.__GenericTestType`3._InstanceEvent"));
             
             Assert.That(
                 Convert.ToXmlDocCommentMember(typeof(System.Console).GetEvent("CancelKeyPress")),
@@ -86,7 +86,7 @@ namespace Jolt.Tests
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(FieldType<int,int>.Field),
-                Is.EqualTo("F:Jolt.Test.Types.FieldType`2._Field"));
+                Is.EqualTo("F:Jolt.Tests.Types.FieldType`2._Field"));
         }
 
         /// <summary>
@@ -122,19 +122,19 @@ namespace Jolt.Tests
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(IndexerType<int, int>.Indexer_4),
-                Is.EqualTo("P:Jolt.Test.Types.IndexerType`2.Item(System.Int32,`0,`1,`0)"));
+                Is.EqualTo("P:Jolt.Tests.Types.IndexerType`2.Item(System.Int32,`0,`1,`0)"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(IndexerType<int, int>.Indexer_1),
-                Is.EqualTo("P:Jolt.Test.Types.IndexerType`2.Item(System.Action{System.Action{System.Action{`1}}})"));
+                Is.EqualTo("P:Jolt.Tests.Types.IndexerType`2.Item(System.Action{System.Action{System.Action{`1}}})"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(IndexerType<int, int>.Indexer_3),
-                Is.EqualTo("P:Jolt.Test.Types.IndexerType`2.Item(`0[],System.Action{System.Action{`1}[0:,0:][]}[][],`0[0:,0:,0:,0:][0:,0:,0:][0:,0:][])"));
+                Is.EqualTo("P:Jolt.Tests.Types.IndexerType`2.Item(`0[],System.Action{System.Action{`1}[0:,0:][]}[][],`0[0:,0:,0:,0:][0:,0:,0:][0:,0:][])"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(PointerTestType<int>.Property),
-                Is.EqualTo("P:Jolt.Test.Types.PointerTestType`1.Item(System.Int32*[],System.Action{System.Action{`0[]}[][]}[],System.Int16***[0:,0:,0:][0:,0:][])"));
+                Is.EqualTo("P:Jolt.Tests.Types.PointerTestType`1.Item(System.Int32*[],System.Action{System.Action{`0[]}[][]}[],System.Int16***[0:,0:,0:][0:,0:][])"));
         }
 
         /// <summary>
@@ -162,19 +162,19 @@ namespace Jolt.Tests
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(ConstructorType<int, int>.Constructor_4),
-                Is.EqualTo("M:Jolt.Test.Types.ConstructorType`2.#ctor(System.Int32,`0,`1,`1)"));
+                Is.EqualTo("M:Jolt.Tests.Types.ConstructorType`2.#ctor(System.Int32,`0,`1,`1)"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(ConstructorType<int, int>.Constructor_1),
-                Is.EqualTo("M:Jolt.Test.Types.ConstructorType`2.#ctor(System.Action{System.Action{System.Action{`0}}})"));
+                Is.EqualTo("M:Jolt.Tests.Types.ConstructorType`2.#ctor(System.Action{System.Action{System.Action{`0}}})"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(ConstructorType<int, int>.Constructor_3),
-                Is.EqualTo("M:Jolt.Test.Types.ConstructorType`2.#ctor(`0[],System.Action{System.Action{System.Action{`1}[][]}[]}[][]@,`1[0:,0:,0:,0:][0:,0:,0:][0:,0:][])"));
+                Is.EqualTo("M:Jolt.Tests.Types.ConstructorType`2.#ctor(`0[],System.Action{System.Action{System.Action{`1}[][]}[]}[][]@,`1[0:,0:,0:,0:][0:,0:,0:][0:,0:][])"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(PointerTestType<int>.Constructor),
-                Is.EqualTo("M:Jolt.Test.Types.PointerTestType`1.#ctor(System.Action{`0[]}[],System.Int32***[0:,0:,0:][0:,0:][]@)"));
+                Is.EqualTo("M:Jolt.Tests.Types.PointerTestType`1.#ctor(System.Action{`0[]}[],System.Int32***[0:,0:,0:][0:,0:][]@)"));
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace Jolt.Tests
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(PointerTestType<int>.Method),
-                Is.EqualTo("M:Jolt.Test.Types.PointerTestType`1._method``1(System.Int32,`0[0:,0:]@,System.Action{``0[0:,0:][]}[][0:,0:]@,System.Action{System.Int32**[0:,0:,0:][]})"));
+                Is.EqualTo("M:Jolt.Tests.Types.PointerTestType`1._method``1(System.Int32,`0[0:,0:]@,System.Action{``0[0:,0:][]}[][0:,0:]@,System.Action{System.Int32**[0:,0:,0:][]})"));
         }
 
         /// <summary>
@@ -219,47 +219,47 @@ namespace Jolt.Tests
         {
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Subtraction),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Subtraction(Jolt.Test.Types.OperatorTestType{`0,`1},Jolt.Test.Types.OperatorTestType{`0,`1})"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Subtraction(Jolt.Tests.Types.OperatorTestType{`0,`1},Jolt.Tests.Types.OperatorTestType{`0,`1})"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Explcit_ToInt),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Explicit(Jolt.Test.Types.OperatorTestType{`0,`1})~System.Int32"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Explicit(Jolt.Tests.Types.OperatorTestType{`0,`1})~System.Int32"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Explcit_FromInt),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Explicit(System.Int32)~Jolt.Test.Types.OperatorTestType{`0,`1}"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Explicit(System.Int32)~Jolt.Tests.Types.OperatorTestType{`0,`1}"));
                             
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Implcit_ToLong),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Implicit(Jolt.Test.Types.OperatorTestType{`0,`1})~System.Int64"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Implicit(Jolt.Tests.Types.OperatorTestType{`0,`1})~System.Int64"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Implcit_FromLong),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Implicit(System.Int64)~Jolt.Test.Types.OperatorTestType{`0,`1}"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Implicit(System.Int64)~Jolt.Tests.Types.OperatorTestType{`0,`1}"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Explicit_FromT),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Explicit(`0)~Jolt.Test.Types.OperatorTestType{`0,`1}"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Explicit(`0)~Jolt.Tests.Types.OperatorTestType{`0,`1}"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Explicit_FromU),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Explicit(`1)~Jolt.Test.Types.OperatorTestType{`0,`1}"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Explicit(`1)~Jolt.Tests.Types.OperatorTestType{`0,`1}"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Explicit_FromAction),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Explicit(System.Action{System.Action{System.Action{`1}}})~Jolt.Test.Types.OperatorTestType{`0,`1}"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Explicit(System.Action{System.Action{System.Action{`1}}})~Jolt.Tests.Types.OperatorTestType{`0,`1}"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Implicit_ToTArray),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Implicit(Jolt.Test.Types.OperatorTestType{`0,`1})~`0[]"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Implicit(Jolt.Tests.Types.OperatorTestType{`0,`1})~`0[]"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Implicit_ToUArray),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Implicit(Jolt.Test.Types.OperatorTestType{`0,`1})~`1[0:,0:,0:,0:][0:,0:,0:][0:,0:][]"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Implicit(Jolt.Tests.Types.OperatorTestType{`0,`1})~`1[0:,0:,0:,0:][0:,0:,0:][0:,0:][]"));
 
             Assert.That(
                 Convert.ToXmlDocCommentMember(OperatorTestType<int, int>.Op_Implicit_ToActionArray),
-                Is.EqualTo("M:Jolt.Test.Types.OperatorTestType`2.op_Implicit(Jolt.Test.Types.OperatorTestType{`0,`1})~System.Action{System.Action{`1}[0:,0:][]}[][]"));
+                Is.EqualTo("M:Jolt.Tests.Types.OperatorTestType`2.op_Implicit(Jolt.Tests.Types.OperatorTestType{`0,`1})~System.Action{System.Action{`1}[0:,0:][]}[][]"));
         }                   
 
         /// <summary>

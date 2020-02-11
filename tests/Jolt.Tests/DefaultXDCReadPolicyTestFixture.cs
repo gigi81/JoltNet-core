@@ -17,7 +17,7 @@ using Jolt.Tests;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Jolt.Test
+namespace Jolt.Tests
 {
     [TestFixture]
     public sealed class DefaultXDCReadPolicyTestFixture : AbstractXDCReadPolicyTestFixture

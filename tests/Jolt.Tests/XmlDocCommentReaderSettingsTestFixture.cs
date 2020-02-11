@@ -16,7 +16,7 @@ using System.Reflection;
 
 using NUnit.Framework;
 
-namespace Jolt.Test
+namespace Jolt.Tests
 {
     [TestFixture]
     public sealed class XmlDocCommentReaderSettingsTestFixture

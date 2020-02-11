@@ -1,19 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net35;net40</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net35;net40</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Xml\DocComments.xml" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Jolt\Jolt.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework) == 'netstandard2.0'">
+  <ItemGroup Condition="$(TargetFramework) == 'netcoreapp3.1'">
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework) != 'netstandard2.0'">
+  <ItemGroup Condition="$(TargetFramework) != 'netcoreapp3.1'">
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -22,9 +26,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" targetFramework="net35" />
-    <PackageReference Include="RhinoMocks" Version="3.6.1" />
+    <PackageReference Include="NUnit" Version="3.*" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.*" />
   </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework) != 'netcoreapp3.1'">
+    <PackageReference Include="RhinoMocks" Version="3.6.1" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework) == 'netcoreapp3.1'">
+    <PackageReference Include="RhinoMocksToMoq" Version="0.2.0" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Rhino.Mocks.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!--<Target Name="CopyXMLFromPackages" AfterTargets="Build">
+    <Copy SourceFiles="$(PkgRhinoMocks)\lib\net\Rhino.Mocks.xml" DestinationFolder="$(OutDir)" />
+  </Target>-->
 
 </Project>
