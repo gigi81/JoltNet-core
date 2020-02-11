@@ -24,5 +24,10 @@ steps:
 
 - task: VSTest@2
   inputs:
-    platform: '$(buildPlatform)'
+    platform: 'x64'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: 'x86'
     configuration: '$(buildConfiguration)'
