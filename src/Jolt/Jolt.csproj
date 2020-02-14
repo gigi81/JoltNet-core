@@ -1,8 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net35;net40</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Contains commonly used classes and core library functionality.</Description>
+    <Copyright>Copyright © Steve Guidi 2008</Copyright>
     <Authors>Luigi Grilli</Authors>
     <Version>1.0.0</Version>
   </PropertyGroup>
@@ -27,4 +29,8 @@
     <Compile Remove="Functional/Delegates.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="jnm2.ReferenceAssemblies.net35" Version="1.0.1" PrivateAssets="All" />
+  </ItemGroup>
 </Project>

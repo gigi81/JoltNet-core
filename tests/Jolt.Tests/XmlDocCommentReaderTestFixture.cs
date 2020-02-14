@@ -16,7 +16,6 @@ using System.Reflection;
 using System.Xml.Linq;
 
 using Jolt.IO;
-using Jolt.Properties;
 using NUnit.Framework;
 using Rhino.Mocks;
 
@@ -68,7 +67,7 @@ namespace Jolt.Tests
                 CreateXDCReaderDelegate(assembly),
                 Throws.InstanceOf<FileNotFoundException>()
                     .With.Message.EqualTo(
-                        String.Format(Resources.Error_XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
+                        String.Format(Errors.XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
                     .And.Property("FileName").EqualTo(assembly.GetName().Name));
         }
 
@@ -110,7 +109,7 @@ namespace Jolt.Tests
                     CreateXDCReaderDelegate(assembly),
                     Throws.InstanceOf<FileNotFoundException>()
                         .With.Message.EqualTo(
-                            String.Format(Resources.Error_XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
+                            String.Format(Errors.XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
                         .And.Property("FileName").EqualTo(assembly.GetName().Name));
             });
         }
@@ -154,7 +153,7 @@ namespace Jolt.Tests
                 () => new XmlDocCommentReader(assembly, createPolicy),
                 Throws.InstanceOf<FileNotFoundException>()
                     .With.Message.EqualTo(
-                        String.Format(Resources.Error_XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
+                        String.Format(Errors.XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
                     .And.Property("FileName").EqualTo(assembly.GetName().Name));
         }
 
@@ -203,7 +202,7 @@ namespace Jolt.Tests
                 () => new XmlDocCommentReader(assembly, settings, createPolicy),
                 Throws.InstanceOf<FileNotFoundException>()
                     .With.Message.EqualTo(
-                        String.Format(Resources.Error_XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
+                        String.Format(Errors.XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
                     .And.Property("FileName").EqualTo(assembly.GetName().Name));
         }
 
@@ -268,7 +267,7 @@ namespace Jolt.Tests
             Assert.That(
                 () => new XmlDocCommentReader(typeof(int).Assembly, settings, fileSystem, createPolicy),
                 Throws.InstanceOf<FileNotFoundException>()
-                    .With.Message.EqualTo(String.Format(Resources.Error_XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
+                    .With.Message.EqualTo(String.Format(Errors.XmlDocComments_AssemblyNotResolved, assembly.GetName().Name))
                     .And.Property("FileName").EqualTo(assembly.GetName().Name));
 
             fileSystem.VerifyAllExpectations();
@@ -366,7 +365,7 @@ namespace Jolt.Tests
                 () => new XmlDocCommentReader(expectedFullPath, fileProxy, readPolicy),
                 Throws.InstanceOf<FileNotFoundException>()
                     .With.Message.EqualTo(
-                        String.Format(Resources.Error_XmlDocComments_FileNotFound, expectedFullPath))
+                        String.Format(Errors.XmlDocComments_FileNotFound, expectedFullPath))
                     .And.Property("FileName").SameAs(expectedFullPath));
 
             fileProxy.VerifyAllExpectations();

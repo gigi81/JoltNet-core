@@ -15,7 +15,6 @@ using System.Xml.Linq;
 using System.Linq;
 
 using Jolt.IO;
-using Jolt.Properties;
 
 namespace Jolt
 {
@@ -184,7 +183,7 @@ namespace Jolt
             if (!fileProxy.Exists(docCommentsFullPath))
             {
                 throw new FileNotFoundException(
-                    String.Format(Resources.Error_XmlDocComments_FileNotFound, docCommentsFullPath),
+                    String.Format(Errors.XmlDocComments_FileNotFound, docCommentsFullPath),
                     docCommentsFullPath);
             }
 
@@ -384,7 +383,7 @@ namespace Jolt
             }
 
             throw new FileNotFoundException(
-                String.Format(Resources.Error_XmlDocComments_AssemblyNotResolved, assemblyFileName),
+                String.Format(Errors.XmlDocComments_AssemblyNotResolved, assemblyFileName),
                 assemblyFileName);
         }
 
