@@ -33,8 +33,8 @@ steps:
     projects: 'tests/*.Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
-  - task: NuGetCommand@2
-    displayName: 'NuGet push private feed'
-    inputs:
-      command: push
-      publishVstsFeed: '/jolt'
+- task: NuGetCommand@2
+  displayName: 'NuGet push private feed'
+  inputs:
+    command: push
+    publishVstsFeed: '/jolt'
