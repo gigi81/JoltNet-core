@@ -37,4 +37,4 @@ steps:
   displayName: 'NuGet push private feed'
   inputs:
     command: push
-    publishVstsFeed: '/jolt'
+    publishVstsFeed: 'Jolt/jolt'
