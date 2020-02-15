@@ -51,22 +51,6 @@ namespace Jolt
         /// </param>
         protected AbstractXDCReadPolicy(string xmlDocCommentsFullPath)
             : this(xmlDocCommentsFullPath, new FileProxy()) { }
-
-        /// <summary>
-        /// Initializes the static state of the <see cref="AbstractXDCReadPolicy"/> class.
-        /// </summary>
-        static AbstractXDCReadPolicy()
-        {
-            ReaderSettings = new XmlReaderSettings();
-            ReaderSettings.ValidationType = ValidationType.Schema;
-
-            Type thisType = typeof(DefaultXDCReadPolicy);
-            using (Stream schema = thisType.Assembly.GetManifestResourceStream(thisType, "Xml.DocComments.xsd"))
-            {
-                ReaderSettings.Schemas.Add(XmlSchema.Read(schema, null));
-            }
-        }
-
         #endregion
 
         #region internal properties ---------------------------------------------------------------
@@ -101,7 +85,21 @@ namespace Jolt
         /// </returns>
         protected XmlReader CreateReader()
         {
-            return XmlReader.Create(m_fileProxy.OpenText(m_xmlDocCommentsFullPath), ReaderSettings);
+            StreamReader stream = null;
+
+            try
+            {
+                var settings = ReaderSettings;
+                stream = m_fileProxy.OpenText(m_xmlDocCommentsFullPath);
+                return XmlReader.Create(stream, settings);
+            }
+            catch
+            {
+                if (stream != null)
+                    stream.Dispose();
+
+                throw;
+            }
         }
 
         #endregion
@@ -111,8 +109,24 @@ namespace Jolt
         private readonly string m_xmlDocCommentsFullPath;
         private readonly IFile m_fileProxy;
 
-        private static readonly XmlReaderSettings ReaderSettings;
-        
+        private static XmlReaderSettings ReaderSettings => _readerSettings ?? (_readerSettings = CreateXmlReaderSettings());
+
+        private static XmlReaderSettings _readerSettings;
+
+        private static XmlReaderSettings CreateXmlReaderSettings()
+        {
+            var type = typeof(AbstractXDCReadPolicy);
+            var ret = new XmlReaderSettings();
+            ret.ValidationType = ValidationType.Schema;
+
+            using (Stream schema = type.Assembly.GetManifestResourceStream(type, "Xml.DocComments.xsd"))
+            {
+                ret.Schemas.Add(XmlSchema.Read(schema, null));
+            }
+
+            return ret;
+        }
+
         #endregion
     }
 }
